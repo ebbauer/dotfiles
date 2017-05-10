@@ -98,9 +98,9 @@ bindsym $mod+a focus parent
 set $workspace1 "1 "
 set $workspace2 "2 "
 set $workspace3 "3 "
-set $workspace4 "4 "
+set $workspace4 "4 "
 set $workspace5 "5 "
-set $workspace6 "6 "
+set $workspace6 "6 "
 set $workspace7 "7 "
 set $workspace8 "8 "
 set $workspace9 "9 "
@@ -134,6 +134,7 @@ assign [class="Google-chrome"] $workspace1
 assign [class="Gnome-terminal"] $workspace2
 assign [class="Spotify"] $workspace10
 assign [class="Sublime_text"] $workspace3
+assign [class="jetbrains-datagrip"] $workspace6
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -201,8 +202,20 @@ bar {
 bindsym $mod+Shift+x exec ~/.config/i3/lock.sh ~/Pictures/Icons/lock.png
 #alt+tab
 bindsym Mod1+Tab exec ~/.config/i3/tab_windows.sh
+#bindsym Mod1+Tab exec workspace back_and_forth
 #win+e
 bindsym $mod+Ctrl+e exec thunar
+#troca workspace entre telas
+bindsym $mod+Ctrl+Right move workspace to output left
+bindsym $mod+Ctrl+Left move workspace to output left
+#volume
+# Pulse Audio controls
+bindsym $mod+Ctrl+9 exec amixer -D pulse sset Master 5%+ #increase sound volume
+bindsym $mod+Ctrl+8 exec amixer -D pulse sset Master 5%- #decrease sound volume
+bindsym $mod+Ctrl+0 exec amixer -D pulse set Master 1+ toggle # mute sound
+
+#keepass
+bindsym $mod+Ctrl+v exec "keepass2 -auto-type-selected"
 
 exec google-chrome "http://192.168.10.40:8585/rondaweb"
 exec i3-sensible-terminal
