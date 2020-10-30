@@ -258,8 +258,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -3% &&
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && notify-send 'mute' # mute sound
 
 # increase screen brightness with notification
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20; notify-send 'test'
-bindsym XF86MonBrightnessDown exec --no-startup-id notify-send 'brightness down'
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 && notify-send "Bright up... $(xbacklight -get)"
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 && notify-send "Bright down... $(xbacklight -get)"
 
 # Media player controls
 #bindsym XF86AudioPlay exec playerctl play
@@ -280,8 +280,8 @@ exec_always setxkbmap us intl
 #exec_always xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Natural Scrolling Enabled' 1
 #exec_always xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Tapping Enabled' 1
 #exec_always xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Tapping Drag Lock Enabled' 1
-exec_always xinput set-prop 12 'libinput Natural Scrolling Enabled' 1
-exec_always xinput set-prop 12 'libinput Tapping Enabled' 1
+exec_always xinput set-prop 13 'libinput Natural Scrolling Enabled' 1
+exec_always xinput set-prop 13 'libinput Tapping Enabled' 1
 
 #initial programs
 exec blueman-applet
